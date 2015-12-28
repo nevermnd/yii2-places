@@ -1,3 +1,3 @@
 # yii2-places
 
-Yii2 typeahead google places autocomplete widget
+Typeahead google places autocomplete widget for Yii2

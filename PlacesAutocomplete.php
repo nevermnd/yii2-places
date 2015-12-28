@@ -47,10 +47,8 @@ class PlacesAutocomplete extends InputWidget
      */
     protected function renderInput()
     {
-        if ($this->hasModel()) {
-            return Html::activeTextInput($this->model, $this->attribute, $this->options);
-        } else {
-            return Html::textInput($this->name, $this->value, $this->options);
-        }
+        return $this->hasModel()
+            ? Html::activeTextInput($this->model, $this->attribute, $this->options)
+            : Html::textInput($this->name, $this->value, $this->options);
     }
 }

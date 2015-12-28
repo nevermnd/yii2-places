@@ -13,8 +13,8 @@ class PlacesPluginAsset extends AssetBundle
 {
     public $sourcePath = '@bower/typeahead-addresspicker/dist';
     public $js = [
-        'typeahead-addresspicker.js',
-        'https://maps.googleapis.com/maps/api/js'
+        'https://maps.googleapis.com/maps/api/js?libraries=places',
+        'typeahead-addresspicker.js'
     ];
     public $depends = [
         'nevermnd\places\PlacesAsset',
