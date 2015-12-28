@@ -25,9 +25,17 @@
     "bower-asset/typeahead.js": "0.10.5 || ~0.10.0",
     "bower-asset/typeahead-addresspicker": "^0.1.4"
   },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  },
   "autoload": {
     "psr-4": {
-      "nevermnd\\places\\": "/"
+      "nevermnd\\places\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "nevermnd\\places\\tests\\": "tests/"
     }
   }
 }

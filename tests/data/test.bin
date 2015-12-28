@@ -1,0 +1,19 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link href="/1/places.css" rel="stylesheet">
+<link href="/3/css/bootstrap.css" rel="stylesheet">    </head>
+    <body>
+        <input type="text" id="model-place" name="Model[place]">
+<input type="text" id="w0" name="place">
+<input type="text" id="w1" name="place">    <script src="/4/jquery.js"></script>
+<script src="/3/js/bootstrap.js"></script>
+<script src="/2/typeahead.bundle.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<script src="/0/typeahead-addresspicker.js"></script>
+<script type="text/javascript">jQuery(document).ready(function () {
+$('#model-place').typeahead(null, {"displayKey":"description","source":new AddressPicker({}).ttAdapter()});
+$('#w0').typeahead(null, {"displayKey":"description","source":new AddressPicker({}).ttAdapter()});
+$('#w1').typeahead(null, {"displayKey":"description","minLength":1,"source":new AddressPicker({"displayKey":"test"}).ttAdapter()});
+});</script>    </body>
+    </html>

@@ -23,6 +23,12 @@ class PlacesAutocomplete extends InputWidget
      * @var array TypeAhead options
      */
     public $typeaheadOptions = [];
+    /**
+     * @var array Default typeahead options
+     */
+    protected $defaultOptions = [
+        'displayKey' => 'description'
+    ];
 
     /**
      * @inheritdoc
@@ -32,21 +38,12 @@ class PlacesAutocomplete extends InputWidget
         $view = $this->getView();
         PlacesPluginAsset::register($view);
 
-        $typeAhead = ArrayHelper::merge(['displayKey' => 'description'], $this->typeaheadOptions);
-        $typeAhead['source'] = new JsExpression('new AddressPicker(' . Json::encode($this->pluginOptions) . ').ttAdapter()');
+        $options = !empty($this->pluginOptions) ? Json::encode($this->pluginOptions) : '{}';
+        $typeAhead = ArrayHelper::merge($this->defaultOptions, $this->typeaheadOptions);
+        $typeAhead['source'] = new JsExpression("new AddressPicker($options).ttAdapter()");
 
         $view->registerJs("$('#{$this->options['id']}').typeahead(null, " . Json::encode($typeAhead) . ");");
 
-        return $this->renderInput();
-    }
-
-    /**
-     * Render the input
-     *
-     * @return string
-     */
-    protected function renderInput()
-    {
         return $this->hasModel()
             ? Html::activeTextInput($this->model, $this->attribute, $this->options)
             : Html::textInput($this->name, $this->value, $this->options);
