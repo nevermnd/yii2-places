@@ -3,6 +3,16 @@
   "description": "Yii2 typeahead google places autocomplete plugin",
   "minimum-stability": "stable",
   "license": "MIT",
+  "keywords": [
+    "yii2",
+    "google",
+    "places",
+    "autocomplete",
+    "typeahead"
+  ],
+  "support": {
+    "source": "https://github.com/nevermnd/yii2-places"
+  },
   "authors": [
     {
       "name": "Thiago Oliveira",
