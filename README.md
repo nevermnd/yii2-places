@@ -1,5 +1,7 @@
 # yii2-places
-This is an Yii2 wrapper for the [Typeahead Address picker](https://github.com/sgruhier/typeahead-addresspicker) JS plugin.
+[![Build Status](https://travis-ci.org/nevermnd/yii2-places.svg?branch=master)](https://travis-ci.org/nevermnd/yii2-places)
+
+This is an Yii2 wrapper for the [Typeahead Address Picker](https://github.com/sgruhier/typeahead-addresspicker) JS plugin.
 
 ## Installation
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
