@@ -34,7 +34,7 @@ class PlacesAutocomplete extends InputWidget
         $typeAhead = ArrayHelper::merge(['displayKey' => 'description'], $this->typeaheadOptions);
         $typeAhead['source'] = 'new AddressPicker(' . Json::encode($this->pluginOptions) . ').ttAdapter()';
 
-        $view->registerJs("$(#{$this->options['id']}).typeahead(null, " . Json::encode($typeAhead) . ")");
+        $view->registerJs("$(#{$this->options['id']}).typeahead(null, " . Json::encode($typeAhead) . ");");
 
         return $this->renderInput();
     }
