@@ -1,7 +1,5 @@
 # yii2-places
-
-Typeahead google places autocomplete widget for Yii2.
-This is a wrapper for the [Typeahead Address picker](https://github.com/sgruhier/typeahead-addresspicker) JS plugin.
+This is an Yii2 wrapper for the [Typeahead Address picker](https://github.com/sgruhier/typeahead-addresspicker) JS plugin.
 
 ## Installation
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
