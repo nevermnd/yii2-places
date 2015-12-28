@@ -5,6 +5,7 @@ namespace nevermnd\places;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
+use yii\web\JsExpression;
 use yii\widgets\InputWidget;
 
 /**
@@ -32,9 +33,9 @@ class PlacesAutocomplete extends InputWidget
         PlacesPluginAsset::register($view);
 
         $typeAhead = ArrayHelper::merge(['displayKey' => 'description'], $this->typeaheadOptions);
-        $typeAhead['source'] = 'new AddressPicker(' . Json::encode($this->pluginOptions) . ').ttAdapter()';
+        $typeAhead['source'] = new JsExpression('new AddressPicker(' . Json::encode($this->pluginOptions) . ').ttAdapter()');
 
-        $view->registerJs("$(#{$this->options['id']}).typeahead(null, " . Json::encode($typeAhead) . ");");
+        $view->registerJs("$('#{$this->options['id']}').typeahead(null, " . Json::encode($typeAhead) . ");");
 
         return $this->renderInput();
     }
