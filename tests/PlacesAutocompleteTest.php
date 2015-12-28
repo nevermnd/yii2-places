@@ -1,6 +1,7 @@
 <?php
 
 namespace nevermnd\places\tests;
+
 use nevermnd\places\tests\models\Model;
 
 /**
