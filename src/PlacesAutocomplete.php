@@ -30,9 +30,15 @@ class PlacesAutocomplete extends InputWidget
     /**
      * @var array Default typeahead options
      */
-    protected $defaultOptions = [
-        'displayKey' => 'description'
-    ];
+    protected $defaultOptions = ['displayKey' => 'description'];
+    /**
+     * @var string Adapter variable name
+     */
+    protected $varName = '';
+    /**
+     * @var int Widgets counter
+     */
+    protected static $widgetCounter = 0;
 
     /**
      * @inheritdoc
@@ -42,6 +48,7 @@ class PlacesAutocomplete extends InputWidget
         $view = $this->getView();
         PlacesPluginAsset::register($view);
 
+        $this->varName = "addressPicker" . static::$widgetCounter++;
         $script = implode("\n", [$this->buildAdapter(), $this->buildTypeAhead(), $this->buildEvent()]);
         $view->registerJs($script);
 
@@ -59,7 +66,7 @@ class PlacesAutocomplete extends InputWidget
     {
         $options = !empty($this->pluginOptions) ? Json::encode($this->pluginOptions) : '{}';
 
-        return "var addressPicker = new AddressPicker($options);";
+        return "var $this->varName = new AddressPicker($options);";
     }
 
     /**
@@ -75,8 +82,8 @@ class PlacesAutocomplete extends InputWidget
         }
 
         $event = $this->onSelect instanceof JsExpression ? $this->onSelect : new JsExpression($this->onSelect);
-        $js .= "addressPicker.bindDefaultTypeaheadEvent($('#{$this->options['id']}'));";
-        $js .= "$(addressPicker).on('addresspicker:selected', $event);";
+        $js .= "$this->varName.bindDefaultTypeaheadEvent($('#{$this->options['id']}'));";
+        $js .= "$($this->varName).on('addresspicker:selected', $event);";
 
         return $js;
     }
@@ -89,7 +96,7 @@ class PlacesAutocomplete extends InputWidget
     protected function buildTypeAhead()
     {
         $options = ArrayHelper::merge($this->defaultOptions, $this->typeaheadOptions);
-        $options['source'] = 'addressPicker.ttAdapter()';
+        $options['source'] = new JsExpression("$this->varName.ttAdapter()");
 
         return "$('#{$this->options['id']}').typeahead(null, " . Json::encode($options) . ");";
     }

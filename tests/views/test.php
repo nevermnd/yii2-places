@@ -22,3 +22,10 @@
     ]
 ])
 ?>
+
+<?=
+\nevermnd\places\PlacesAutocomplete::widget([
+    'name'     => 'place',
+    'onSelect' => 'function (one, two) { return; }'
+])
+?>

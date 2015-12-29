@@ -6,14 +6,24 @@
     <body>
         <input type="text" id="model-place" name="Model[place]">
 <input type="text" id="w0" name="place">
-<input type="text" id="w1" name="place">    <script src="/4/jquery.js"></script>
+<input type="text" id="w1" name="place">
+<input type="text" id="w2" name="place">    <script src="/4/jquery.js"></script>
 <script src="/3/js/bootstrap.js"></script>
 <script src="/2/typeahead.bundle.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <script src="/0/typeahead-addresspicker.js"></script>
 <script type="text/javascript">jQuery(document).ready(function () {
-$('#model-place').typeahead(null, {"displayKey":"description","source":new AddressPicker({}).ttAdapter()});
-$('#w0').typeahead(null, {"displayKey":"description","source":new AddressPicker({}).ttAdapter()});
-$('#w1').typeahead(null, {"displayKey":"description","minLength":1,"source":new AddressPicker({"displayKey":"test"}).ttAdapter()});
+var addressPicker0 = new AddressPicker({});
+$('#model-place').typeahead(null, {"displayKey":"description","source":addressPicker0.ttAdapter()});
+
+var addressPicker1 = new AddressPicker({});
+$('#w0').typeahead(null, {"displayKey":"description","source":addressPicker1.ttAdapter()});
+
+var addressPicker2 = new AddressPicker({"displayKey":"test"});
+$('#w1').typeahead(null, {"displayKey":"description","minLength":1,"source":addressPicker2.ttAdapter()});
+
+var addressPicker3 = new AddressPicker({});
+$('#w2').typeahead(null, {"displayKey":"description","source":addressPicker3.ttAdapter()});
+addressPicker3.bindDefaultTypeaheadEvent($('#w2'));$(addressPicker3).on('addresspicker:selected', function (one, two) { return; });
 });</script>    </body>
     </html>
