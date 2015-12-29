@@ -82,7 +82,7 @@ class PlacesAutocomplete extends InputWidget
         }
 
         $event = $this->onSelect instanceof JsExpression ? $this->onSelect : new JsExpression($this->onSelect);
-        $js .= "$this->varName.bindDefaultTypeaheadEvent($('#{$this->options['id']}'));";
+        $js .= "$this->varName.bindDefaultTypeaheadEvent($('#{$this->options['id']}'));\n";
         $js .= "$($this->varName).on('addresspicker:selected', $event);";
 
         return $js;

@@ -24,6 +24,7 @@ $('#w1').typeahead(null, {"displayKey":"description","minLength":1,"source":addr
 
 var addressPicker3 = new AddressPicker({});
 $('#w2').typeahead(null, {"displayKey":"description","source":addressPicker3.ttAdapter()});
-addressPicker3.bindDefaultTypeaheadEvent($('#w2'));$(addressPicker3).on('addresspicker:selected', function (one, two) { return; });
+addressPicker3.bindDefaultTypeaheadEvent($('#w2'));
+$(addressPicker3).on('addresspicker:selected', function (one, two) { return; });
 });</script>    </body>
     </html>
