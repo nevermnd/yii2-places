@@ -1,4 +1,4 @@
-# yii2-places
+# yii2-places-autocomplete
 [![Build Status](https://travis-ci.org/nevermnd/yii2-places.svg?branch=master)](https://travis-ci.org/nevermnd/yii2-places)
 
 This is an Yii2 wrapper for the [Typeahead Address Picker](https://github.com/sgruhier/typeahead-addresspicker) JS plugin.
