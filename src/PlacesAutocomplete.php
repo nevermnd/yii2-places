@@ -76,16 +76,14 @@ class PlacesAutocomplete extends InputWidget
      */
     protected function buildEvent()
     {
-        $js = '';
-        if (!$this->onSelect) {
-            return $js;
+        $script = '';
+        if ($this->onSelect) {
+            $event = $this->onSelect instanceof JsExpression ? $this->onSelect : new JsExpression($this->onSelect);
+            $script .= "$this->varName.bindDefaultTypeaheadEvent($('#{$this->options['id']}'));\n";
+            $script .= "$($this->varName).on('addresspicker:selected', $event);";
         }
 
-        $event = $this->onSelect instanceof JsExpression ? $this->onSelect : new JsExpression($this->onSelect);
-        $js .= "$this->varName.bindDefaultTypeaheadEvent($('#{$this->options['id']}'));\n";
-        $js .= "$($this->varName).on('addresspicker:selected', $event);";
-
-        return $js;
+        return $script;
     }
 
     /**
