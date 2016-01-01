@@ -1,6 +1,6 @@
 {
   "name": "nevermnd/yii2-places",
-  "description": "Yii2 typeahead google places autocomplete plugin",
+  "description": "Yii2 typeahead google places autocomplete widget",
   "minimum-stability": "stable",
   "license": "MIT",
   "keywords": [
