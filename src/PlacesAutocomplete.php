@@ -15,6 +15,11 @@ use yii\widgets\InputWidget;
  */
 class PlacesAutocomplete extends InputWidget
 {
+    const PLUGIN_NAME = 'addressPicker';
+    /**
+     * @var int Widgets counter
+     */
+    protected static $widgetCounter = 0;
     /**
      * @var array Autocomplete plugin options
      */
@@ -35,10 +40,6 @@ class PlacesAutocomplete extends InputWidget
      * @var string Adapter variable name
      */
     protected $varName = '';
-    /**
-     * @var int Widgets counter
-     */
-    protected static $widgetCounter = 0;
 
     /**
      * @inheritdoc
@@ -46,27 +47,41 @@ class PlacesAutocomplete extends InputWidget
     public function run()
     {
         $view = $this->getView();
-        PlacesPluginAsset::register($view);
 
-        $this->varName = "addressPicker" . static::$widgetCounter++;
-        $script = implode("\n", [$this->buildAdapter(), $this->buildTypeAhead(), $this->buildEvent()]);
+        $options = $this->encodeOptions();
+        $this->varName = $this->generateVarName($options);
+        $script = implode("\n", [$this->buildAdapter($options), $this->buildTypeAhead(), $this->buildEvent()]);
+
+        PlacesPluginAsset::register($view);
         $view->registerJs($script);
 
-        return $this->hasModel()
-            ? Html::activeTextInput($this->model, $this->attribute, $this->options)
-            : Html::textInput($this->name, $this->value, $this->options);
+        if ($this->hasModel()) {
+            return Html::activeTextInput($this->model, $this->attribute, $this->options);
+        } else {
+            return Html::textInput($this->name, $this->value, $this->options);
+        }
     }
 
     /**
      * Build the required adapter JS
      *
+     * @param string $options JSON encoded options
+     *
      * @return string
      */
-    protected function buildAdapter()
+    protected function buildAdapter($options)
     {
-        $options = !empty($this->pluginOptions) ? Json::encode($this->pluginOptions) : '{}';
-
         return "var $this->varName = new AddressPicker($options);";
+    }
+
+    /**
+     * Encode the plugin options into a JSON string
+     *
+     * @return string
+     */
+    protected function encodeOptions()
+    {
+        return !empty($this->pluginOptions) ? Json::encode($this->pluginOptions) : '{}';
     }
 
     /**
@@ -97,5 +112,17 @@ class PlacesAutocomplete extends InputWidget
         $options['source'] = new JsExpression("$this->varName.ttAdapter()");
 
         return "$('#{$this->options['id']}').typeahead(null, " . Json::encode($options) . ");";
+    }
+
+    /**
+     * Generates an unique variable name
+     *
+     * @param string $options
+     *
+     * @return string
+     */
+    protected function generateVarName($options)
+    {
+        return self::PLUGIN_NAME . '_' . hash('crc32', $options . static::$widgetCounter++);
     }
 }

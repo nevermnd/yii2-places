@@ -13,18 +13,18 @@
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <script src="/0/typeahead-addresspicker.js"></script>
 <script type="text/javascript">jQuery(document).ready(function () {
-var addressPicker0 = new AddressPicker({});
-$('#model-place').typeahead(null, {"displayKey":"description","source":addressPicker0.ttAdapter()});
+var addressPicker_d06570ac = new AddressPicker({});
+$('#model-place').typeahead(null, {"displayKey":"description","source":addressPicker_d06570ac.ttAdapter()});
 
-var addressPicker1 = new AddressPicker({});
-$('#w0').typeahead(null, {"displayKey":"description","source":addressPicker1.ttAdapter()});
+var addressPicker_6778b1a8 = new AddressPicker({});
+$('#w0').typeahead(null, {"displayKey":"description","source":addressPicker_6778b1a8.ttAdapter()});
 
-var addressPicker2 = new AddressPicker({"displayKey":"test"});
-$('#w1').typeahead(null, {"displayKey":"description","minLength":1,"source":addressPicker2.ttAdapter()});
+var addressPicker_0301da6e = new AddressPicker({"displayKey":"test"});
+$('#w1').typeahead(null, {"displayKey":"description","minLength":1,"source":addressPicker_0301da6e.ttAdapter()});
 
-var addressPicker3 = new AddressPicker({});
-$('#w2').typeahead(null, {"displayKey":"description","source":addressPicker3.ttAdapter()});
-addressPicker3.bindDefaultTypeaheadEvent($('#w2'));
-$(addressPicker3).on('addresspicker:selected', function (one, two) { return; });
+var addressPicker_094333a1 = new AddressPicker({});
+$('#w2').typeahead(null, {"displayKey":"description","source":addressPicker_094333a1.ttAdapter()});
+addressPicker_094333a1.bindDefaultTypeaheadEvent($('#w2'));
+$(addressPicker_094333a1).on('addresspicker:selected', function (one, two) { return; });
 });</script>    </body>
     </html>
