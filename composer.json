@@ -19,11 +19,16 @@
       "email": "thiago.oliveira.gt14@gmail.com"
     }
   ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/sgruhier/typeahead-addresspicker"
+    }
+  ],
   "require": {
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-bootstrap": "~2.0.0",
-    "bower-asset/typeahead.js": "0.10.5 || ~0.10.0",
-    "bower-asset/typeahead-addresspicker": "^0.1.4"
+    "bower-asset/typeahead-addresspicker": "dev-typeahead-0.11.1 as 0.1.4"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0"
