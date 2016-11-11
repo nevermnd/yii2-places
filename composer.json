@@ -19,12 +19,14 @@
       "email": "thiago.oliveira.gt14@gmail.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/sgruhier/typeahead-addresspicker"
-    }
-  ],
+  "extra": {
+    "asset-repositories": [
+      {
+        "type": "bower-github",
+        "url": "https://github.com/sgruhier/typeahead-addresspicker"
+      }
+    ]
+  },
   "require": {
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-bootstrap": "~2.0.0",
