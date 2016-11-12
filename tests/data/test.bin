@@ -4,10 +4,10 @@
         <link href="/1/places.css" rel="stylesheet">
 <link href="/3/css/bootstrap.css" rel="stylesheet">    </head>
     <body>
-        <input type="text" id="model-place" name="Model[place]">
-<input type="text" id="w0" name="place">
-<input type="text" id="w1" name="place">
-<input type="text" id="w2" name="place">    <script src="/4/jquery.js"></script>
+        <input type="text" id="model-place" class="typeahead" name="Model[place]">
+<input type="text" id="w0" class="typeahead" name="place">
+<input type="text" id="w1" class="typeahead" name="place">
+<input type="text" id="w2" class="typeahead" name="place">    <script src="/4/jquery.js"></script>
 <script src="/3/js/bootstrap.js"></script>
 <script src="/2/typeahead.bundle.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
