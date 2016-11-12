@@ -1,7 +1,7 @@
 {
   "name": "nevermnd/yii2-places",
   "description": "Yii2 typeahead google places autocomplete widget",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "license": "MIT",
   "keywords": [
     "yii2",
@@ -30,7 +30,9 @@
   "require": {
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-bootstrap": "~2.0.0",
-    "bower-asset/typeahead-addresspicker": "dev-typeahead-0.11.1 as 0.1.4"
+    "bower-asset/typeahead.js": "*",
+    "bower-asset/typeahead-addresspicker": "dev-typeahead-0.11.1 as 0.1.4",
+    "yiisoft/yii2-gii": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0"

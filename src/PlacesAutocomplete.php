@@ -52,6 +52,7 @@ class PlacesAutocomplete extends InputWidget
         $this->varName = $this->generateVarName($options);
         $script = implode("\n", [$this->buildAdapter($options), $this->buildTypeAhead(), $this->buildEvent()]);
 
+        Html::addCssClass($this->options, 'typeahead');
         PlacesPluginAsset::register($view);
         $view->registerJs($script);
 
