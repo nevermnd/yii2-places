@@ -1,6 +1,6 @@
 # yii2-places-autocomplete
 
-###This extension is now deprecated, v1.0.5 is the last release!
+### This extension is now deprecated, v1.0.5 is the last release!
 Mainly because Typeahead Address Picker hasn't been updated in some time and Google Places now requires API keys.
 
 
