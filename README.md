@@ -27,6 +27,10 @@ to the `require` section of your `composer.json` file.
 
 ## Usage
 With a model:
+```
+use nevermnd\places\PlacesAutocomplete;
+```
+
 ```php
 <?php
 echo $form->field($model, 'place')
@@ -34,7 +38,9 @@ echo $form->field($model, 'place')
 ?>
 ```
 Without a model:
-
+```
+use nevermnd\places\PlacesAutocomplete;
+```
 ```php
 <?php
 echo PlacesAutocomplete::widget(['name' => 'place']);
